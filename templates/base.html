@@ -7,7 +7,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>{% block title %}Dashboard{% endblock %} - {{ site_name }}</title>
+    <title>{% block title %}{% endblock title %} - {{ site_name }}</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
@@ -104,13 +104,9 @@
     <div class="bg-charbon-900 text-bois-100">
       {% include "includes/navbar.html" %}
 
-      <div class="flex grow flex-col lg:ps-75">
-        {% include "includes/sidebar.html" %}
+      <main>{% block content %}{% endblock content %}</main>
 
-        <main>{% block content %}{% endblock content %}</main>
-
-        {% include "includes/footer.html" %}
-      </div>
+      {% include "includes/footer.html" %}
     </div>
     i
     <!--<script src="{% static 'js/flyonui.js' %}"></script>-->

@@ -1,6 +1,6 @@
-{% extends "core/base.html" %}
+{% extends "base.html" %}
 <!-- prettier-ignore -->
-{% block title %}Jean-Pierre Morel — Artisan Charpentier & Menuisier{% endblock %}
+{% block title %}{{ site_name }} — Artisan Charpentier & Menuisier{% endblock %}
 
 {% block content %}
 
@@ -67,7 +67,9 @@
 
     <!-- Stats droite -->
     <div class="grid grid-cols-2 gap-6 fade-up delay-2">
-      {% for stat in stats %} {% endfor %}
+      {% for stat in stats %}
+      <!-- prettier-ignore -->
+      {% endfor %}
       <!-- Stats fixes (tu peux les rendre dynamiques via context) -->
       <div class="border border-bois-700/50 bg-charbon-800/50 p-8 text-center">
         <div class="font-accent text-5xl text-bois-400 mb-2">25+</div>
@@ -214,7 +216,9 @@
         </p>
       </div>
 
-      {% if competences %} {% for c in competences %}
+      {% if competences %}
+      <!-- prettier-ignore -->
+      {% for c in competences %}
       <div
         class="group border-l-2 border-bois-700 hover:border-bois-500 pl-6 py-4 transition-all"
       >
@@ -224,7 +228,9 @@
         </h3>
         <p class="text-bois-500 text-sm leading-relaxed">{{ c.description }}</p>
       </div>
-      {% endfor %} {% endif %}
+      {% endfor %}
+      <!-- prettier-ignore -->
+      {% endif %}
     </div>
   </div>
 </section>
@@ -311,10 +317,7 @@
     <div class="grid md:grid-cols-2 gap-8">
       {% for t in temoignages %}
       <div class="border border-bois-800/40 bg-charbon-900/50 p-8">
-        <div class="text-bois-500 text-xl mb-4">
-          {% for i in "xxxxx" %}{% if forloop.counter <= t.note %}★{% else %}☆{%
-          endif %}{% endfor %}
-        </div>
+        <div class="text-bois-500 text-xl mb-4">{{ t.note }}</div>
         <p class="text-bois-300 italic leading-relaxed mb-6">"{{ t.texte }}"</p>
         <div class="flex items-center gap-3">
           <div
