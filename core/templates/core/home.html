@@ -1,0 +1,368 @@
+{% extends "core/base.html" %}
+<!-- prettier-ignore -->
+{% block title %}Jean-Pierre Morel — Artisan Charpentier & Menuisier{% endblock %}
+
+{% block content %}
+
+<!-- ═══════════════════════════════════ HERO ═══════════════════════════════════ -->
+<section
+  class="relative min-h-screen bg-wood-texture flex items-center overflow-hidden pt-20"
+>
+  <!-- Grain overlay -->
+  <div
+    class="absolute inset-0 opacity-30"
+    style="
+      background-image: url(&quot;data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.4'/%3E%3C/svg%3E&quot;);
+    "
+  ></div>
+
+  <!-- Ligne verticale gauche -->
+  <div
+    class="absolute left-8 top-1/4 bottom-1/4 w-px bg-gradient-to-b from-transparent via-bois-600 to-transparent opacity-60 hidden lg:block"
+  ></div>
+
+  <div
+    class="relative max-w-7xl mx-auto px-6 py-24 grid lg:grid-cols-2 gap-16 items-center"
+  >
+    <!-- Texte gauche -->
+    <div>
+      <div class="fade-up flex items-center gap-3 mb-6">
+        <div class="w-8 h-px bg-bois-500"></div>
+        <span class="text-bois-500 text-xs tracking-[0.3em] uppercase"
+          >Artisan depuis 1998</span
+        >
+      </div>
+
+      <h1
+        class="fade-up delay-1 font-display text-6xl lg:text-8xl font-black text-bois-100 leading-none mb-4"
+      >
+        L'art<br />
+        <span class="text-bois-500">du bois</span><br />
+        vivant.
+      </h1>
+
+      <p
+        class="fade-up delay-2 font-body text-bois-400 text-lg leading-relaxed mb-10 max-w-lg"
+      >
+        Charpentier et menuisier de métier, Jean-Pierre Morel transforme chaque
+        pièce de bois en chef-d'œuvre durable. Des charpentes ancestrales aux
+        agencements contemporains.
+      </p>
+
+      <div class="fade-up delay-3 flex flex-wrap gap-4">
+        <a
+          href="{% url 'gallery' %}"
+          class="bg-bois-600 hover:bg-bois-500 text-bois-100 px-8 py-4 font-accent tracking-widest text-lg uppercase transition-all hover:scale-105"
+        >
+          Voir les réalisations
+        </a>
+        <a
+          href="{% url 'story' %}"
+          class="border border-bois-600 text-bois-400 hover:text-bois-300 hover:border-bois-400 px-8 py-4 font-accent tracking-widest text-lg uppercase transition-all"
+        >
+          Mon histoire
+        </a>
+      </div>
+    </div>
+
+    <!-- Stats droite -->
+    <div class="grid grid-cols-2 gap-6 fade-up delay-2">
+      {% for stat in stats %} {% endfor %}
+      <!-- Stats fixes (tu peux les rendre dynamiques via context) -->
+      <div class="border border-bois-700/50 bg-charbon-800/50 p-8 text-center">
+        <div class="font-accent text-5xl text-bois-400 mb-2">25+</div>
+        <div class="text-bois-600 text-xs tracking-widest uppercase">
+          Années d'expérience
+        </div>
+      </div>
+      <div class="border border-bois-700/50 bg-charbon-800/50 p-8 text-center">
+        <div class="font-accent text-5xl text-bois-400 mb-2">320</div>
+        <div class="text-bois-600 text-xs tracking-widest uppercase">
+          Chantiers réalisés
+        </div>
+      </div>
+      <div class="border border-bois-700/50 bg-charbon-800/50 p-8 text-center">
+        <div class="font-accent text-5xl text-bois-400 mb-2">100%</div>
+        <div class="text-bois-600 text-xs tracking-widest uppercase">
+          Bois certifiés PEFC
+        </div>
+      </div>
+      <div class="border border-bois-700/50 bg-charbon-800/50 p-8 text-center">
+        <div class="font-accent text-5xl text-bois-400 mb-2">4.9★</div>
+        <div class="text-bois-600 text-xs tracking-widest uppercase">
+          Note clients
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div
+    class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-bois-700 animate-bounce"
+  >
+    <span class="text-xs tracking-widest">DÉFILER</span>
+    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M19 9l-7 7-7-7"
+      />
+    </svg>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════ COMPÉTENCES ════════════════════════════ -->
+<section class="py-24 bg-charbon-800">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="gold-line mb-2">
+      <h2
+        class="font-display text-4xl lg:text-5xl font-bold text-bois-100 mb-4"
+      >
+        Mes savoir-faire
+      </h2>
+    </div>
+    <p class="text-bois-500 max-w-xl mb-16 leading-relaxed">
+      Deux disciplines complémentaires maîtrisées de l'atelier jusqu'au
+      chantier.
+    </p>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Charpente traditionnelle -->
+      <div
+        class="group border-l-2 border-bois-700 hover:border-bois-500 pl-6 py-4 transition-all"
+      >
+        <div class="text-3xl mb-4">🏚️</div>
+        <h3 class="font-display text-xl text-bois-200 font-bold mb-2">
+          Charpente traditionnelle
+        </h3>
+        <p class="text-bois-500 text-sm leading-relaxed">
+          Fermes, pannes, chevrons — assemblages à la cheville de bois,
+          tenons-mortaises. Respect des techniques ancestrales sur maisons à
+          pans de bois et longères.
+        </p>
+      </div>
+
+      <!-- Charpente industrielle -->
+      <div
+        class="group border-l-2 border-bois-700 hover:border-bois-500 pl-6 py-4 transition-all"
+      >
+        <div class="text-3xl mb-4">🏗️</div>
+        <h3 class="font-display text-xl text-bois-200 font-bold mb-2">
+          Charpente industrielle
+        </h3>
+        <p class="text-bois-500 text-sm leading-relaxed">
+          Fermettes métalliques, systèmes de contreventement, charpentes pour
+          hangars agricoles, bâtiments commerciaux et extensions contemporaines.
+        </p>
+      </div>
+
+      <!-- Ossature bois -->
+      <div
+        class="group border-l-2 border-bois-700 hover:border-bois-500 pl-6 py-4 transition-all"
+      >
+        <div class="text-3xl mb-4">🌲</div>
+        <h3 class="font-display text-xl text-bois-200 font-bold mb-2">
+          Ossature bois (COB)
+        </h3>
+        <p class="text-bois-500 text-sm leading-relaxed">
+          Construction bois à ossature porteuse, maisons BBC, chalets et
+          extensions. Isolation performante intégrée, rapide à poser.
+        </p>
+      </div>
+
+      <!-- Menuiserie intérieure -->
+      <div
+        class="group border-l-2 border-bois-700 hover:border-bois-500 pl-6 py-4 transition-all"
+      >
+        <div class="text-3xl mb-4">🚪</div>
+        <h3 class="font-display text-xl text-bois-200 font-bold mb-2">
+          Menuiserie intérieure
+        </h3>
+        <p class="text-bois-500 text-sm leading-relaxed">
+          Escaliers sur-mesure, portes, parquets, bibliothèques, cuisines et
+          dressings. Chaque élément conçu et fabriqué dans l'atelier.
+        </p>
+      </div>
+
+      <!-- Menuiserie extérieure -->
+      <div
+        class="group border-l-2 border-bois-700 hover:border-bois-500 pl-6 py-4 transition-all"
+      >
+        <div class="text-3xl mb-4">🪟</div>
+        <h3 class="font-display text-xl text-bois-200 font-bold mb-2">
+          Menuiserie extérieure
+        </h3>
+        <p class="text-bois-500 text-sm leading-relaxed">
+          Fenêtres, volets, portails, terrasses et bardages bois. Essences
+          sélectionnées pour leur durabilité : chêne, mélèze, douglas.
+        </p>
+      </div>
+
+      <!-- Restauration -->
+      <div
+        class="group border-l-2 border-bois-700 hover:border-bois-500 pl-6 py-4 transition-all"
+      >
+        <div class="text-3xl mb-4">🏛️</div>
+        <h3 class="font-display text-xl text-bois-200 font-bold mb-2">
+          Restauration du patrimoine
+        </h3>
+        <p class="text-bois-500 text-sm leading-relaxed">
+          Diagnostic, réparation et consolidation de charpentes anciennes.
+          Travail sur monuments historiques et bâtiments classés avec respect
+          des matériaux d'origine.
+        </p>
+      </div>
+
+      {% if competences %} {% for c in competences %}
+      <div
+        class="group border-l-2 border-bois-700 hover:border-bois-500 pl-6 py-4 transition-all"
+      >
+        <div class="text-3xl mb-4">{{ c.icone }}</div>
+        <h3 class="font-display text-xl text-bois-200 font-bold mb-2">
+          {{ c.nom }}
+        </h3>
+        <p class="text-bois-500 text-sm leading-relaxed">{{ c.description }}</p>
+      </div>
+      {% endfor %} {% endif %}
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════ RÉALISATIONS VEDETTE ═══════════════════ -->
+<section class="py-24 bg-charbon-900">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="flex items-end justify-between mb-16">
+      <div>
+        <div class="gold-line">
+          <h2 class="font-display text-4xl lg:text-5xl font-bold text-bois-100">
+            Réalisations récentes
+          </h2>
+        </div>
+      </div>
+      <a
+        href="{% url 'gallery' %}"
+        class="text-bois-500 hover:text-bois-300 text-sm tracking-widest uppercase border-b border-bois-700 hover:border-bois-400 pb-1 transition-all hidden md:block"
+      >
+        Tout voir →
+      </a>
+    </div>
+
+    {% if realisations_vedette %}
+    <div class="grid md:grid-cols-3 gap-6">
+      {% for r in realisations_vedette %}
+      <div class="gallery-card relative overflow-hidden group cursor-pointer">
+        <img
+          src="{{ r.image.url }}"
+          alt="{{ r.titre }}"
+          class="w-full h-72 object-cover filter grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
+        />
+        <div
+          class="card-overlay absolute inset-0 bg-gradient-to-t from-charbon-900 via-charbon-900/50 to-transparent flex flex-col justify-end p-6"
+        >
+          <span class="text-bois-500 text-xs tracking-widest uppercase mb-2"
+            >{{ r.get_categorie_display }}</span
+          >
+          <h3 class="font-display text-2xl text-bois-100 font-bold">
+            {{ r.titre }}
+          </h3>
+          {% if r.lieu %}
+          <p class="text-bois-400 text-sm mt-1">📍 {{ r.lieu }}</p>
+          {% endif %}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    {% else %}
+    <!-- Placeholders si pas encore de données -->
+    <div class="grid md:grid-cols-3 gap-6">
+      {% for i in "abc" %}
+      <div
+        class="relative overflow-hidden bg-charbon-800 h-72 flex items-center justify-center border border-bois-800/30"
+      >
+        <div class="text-center text-bois-700">
+          <div class="text-5xl mb-3">🪵</div>
+          <div class="text-xs tracking-widest">Réalisation à venir</div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    {% endif %}
+
+    <div class="text-center mt-10 md:hidden">
+      <a
+        href="{% url 'gallery' %}"
+        class="text-bois-500 hover:text-bois-300 text-sm tracking-widest uppercase border-b border-bois-700 pb-1"
+        >Voir toutes les réalisations →</a
+      >
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════ TÉMOIGNAGES ═══════════════════════════ -->
+{% if temoignages %}
+<section class="py-24 bg-charbon-800">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="gold-line mb-12">
+      <h2 class="font-display text-4xl font-bold text-bois-100">
+        Ils me font confiance
+      </h2>
+    </div>
+    <div class="grid md:grid-cols-2 gap-8">
+      {% for t in temoignages %}
+      <div class="border border-bois-800/40 bg-charbon-900/50 p-8">
+        <div class="text-bois-500 text-xl mb-4">
+          {% for i in "xxxxx" %}{% if forloop.counter <= t.note %}★{% else %}☆{%
+          endif %}{% endfor %}
+        </div>
+        <p class="text-bois-300 italic leading-relaxed mb-6">"{{ t.texte }}"</p>
+        <div class="flex items-center gap-3">
+          <div
+            class="w-8 h-8 bg-bois-700 flex items-center justify-center text-bois-300 font-bold text-sm"
+          >
+            {{ t.client|first }}
+          </div>
+          <div>
+            <div class="text-bois-200 text-sm font-bold">{{ t.client }}</div>
+            <div class="text-bois-600 text-xs">{{ t.date|date:"Y" }}</div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<!-- ═══════════════════════════════════ CONTACT ════════════════════════════════ -->
+<section id="contact" class="py-24 bg-wood-texture">
+  <div class="max-w-4xl mx-auto px-6 text-center">
+    <div
+      class="font-accent text-bois-600 text-sm tracking-[0.4em] uppercase mb-4"
+    >
+      Un projet ? Une question ?
+    </div>
+    <h2 class="font-display text-5xl lg:text-6xl font-black text-bois-100 mb-6">
+      Parlons bois.
+    </h2>
+    <p class="text-bois-500 text-lg mb-12 leading-relaxed">
+      Devis gratuit sous 48h. Déplacement possible dans un rayon de 150 km.
+    </p>
+    <div class="flex flex-wrap justify-center gap-6">
+      <a
+        href="tel:+33612345678"
+        class="bg-bois-600 hover:bg-bois-500 text-bois-100 px-10 py-5 font-accent tracking-widest text-xl uppercase transition-all hover:scale-105"
+      >
+        📞 Appeler maintenant
+      </a>
+      <a
+        href="mailto:jp.morel@charpente-menuiserie.fr"
+        class="border border-bois-600 text-bois-400 hover:text-bois-200 hover:border-bois-400 px-10 py-5 font-accent tracking-widest text-xl uppercase transition-all"
+      >
+        ✉ Envoyer un email
+      </a>
+    </div>
+  </div>
+</section>
+
+{% endblock content %}

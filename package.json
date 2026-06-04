@@ -1,0 +1,12 @@
+{
+  "dependencies": {
+    "@editorjs/editorjs": "^2.31.0",
+    "flyonui": "^2.4.1",
+    "notyf": "^3.10.0",
+    "raty-js": "^4.3.0"
+  },
+  "devDependencies": {
+    "@iconify/json": "^2.2.424",
+    "@iconify/tailwind4": "^1.2.0"
+  }
+}

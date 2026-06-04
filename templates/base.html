@@ -1,0 +1,125 @@
+{% load static tailwind_tags %}
+
+<!-- prettier-ignore -->
+
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>{% block title %}Dashboard{% endblock %} - {{ site_name }}</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    {% tailwind_css %}
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Libre Baskerville", Georgia, serif;
+      }
+
+      /* Texture bois en fond */
+      .bg-wood-texture {
+        background-color: #1a1410;
+        background-image:
+          repeating-linear-gradient(
+            87deg,
+            transparent,
+            transparent 2px,
+            rgba(200, 131, 42, 0.03) 2px,
+            rgba(200, 131, 42, 0.03) 4px
+          ),
+          repeating-linear-gradient(
+            93deg,
+            transparent,
+            transparent 3px,
+            rgba(107, 62, 26, 0.05) 3px,
+            rgba(107, 62, 26, 0.05) 6px
+          );
+      }
+
+      /* Ligne dorée décorative */
+      .gold-line::before {
+        content: "";
+        display: block;
+        width: 60px;
+        height: 3px;
+        background: linear-gradient(90deg, #c8832a, #e8be7c);
+        margin-bottom: 1rem;
+      }
+
+      /* Animation d'entrée */
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .fade-up {
+        animation: fadeUp 0.8s ease forwards;
+      }
+      .delay-1 {
+        animation-delay: 0.2s;
+        opacity: 0;
+      }
+      .delay-2 {
+        animation-delay: 0.4s;
+        opacity: 0;
+      }
+      .delay-3 {
+        animation-delay: 0.6s;
+        opacity: 0;
+      }
+
+      /* Hover card */
+      .gallery-card:hover .card-overlay {
+        opacity: 1;
+      }
+      .card-overlay {
+        opacity: 0;
+        transition: opacity 0.4s ease;
+      }
+
+      /* Marque de scie décorative */
+      .saw-mark {
+        background: repeating-linear-gradient(
+          90deg,
+          #c8832a 0px,
+          #c8832a 1px,
+          transparent 1px,
+          transparent 8px
+        );
+        height: 4px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="bg-charbon-900 text-bois-100">
+      {% include "includes/navbar.html" %}
+
+      <div class="flex grow flex-col lg:ps-75">
+        {% include "includes/sidebar.html" %}
+
+        <main>{% block content %}{% endblock content %}</main>
+
+        {% include "includes/footer.html" %}
+      </div>
+    </div>
+    i
+    <!--<script src="{% static 'js/flyonui.js' %}"></script>-->
+    <script>
+      document.getElementById("burger").addEventListener("click", () => {
+        document.getElementById("mobile-menu").classList.toggle("hidden");
+      });
+    </script>
+
+    {% block extra_script %} {% endblock extra_script %}
+  </body>
+</html>

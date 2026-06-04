@@ -1,0 +1,88 @@
+<nav
+  class="fixed top-0 left-0 right-0 z-50 bg-charbon-900/90 backdrop-blur-sm border-b border-bois-800/30"
+>
+  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    <a href="{% url 'home' %}" class="flex items-center gap-3">
+      <div
+        class="w-10 h-10 border-2 border-bois-500 flex items-center justify-center"
+      >
+        <span class="text-bois-400 text-lg">⊞</span>
+      </div>
+      <div>
+        <div
+          class="font-accent text-bois-300 text-xl leading-none tracking-widest"
+        >
+          J.P. MOREL
+        </div>
+        <div class="text-bois-600 text-xs tracking-wider">
+          CHARPENTIER · MENUISIER
+        </div>
+      </div>
+    </a>
+
+    <div class="hidden md:flex items-center gap-8">
+      <a
+        href="{% url 'home' %}"
+        class="text-bois-300 hover:text-bois-400 text-sm tracking-widest uppercase transition-colors"
+        >Accueil</a
+      >
+      <a
+        href="{% url 'story' %}"
+        class="text-bois-300 hover:text-bois-400 text-sm tracking-widest uppercase transition-colors"
+        >Mon Histoire</a
+      >
+      <a
+        href="{% url 'gallery' %}"
+        class="text-bois-300 hover:text-bois-400 text-sm tracking-widest uppercase transition-colors"
+        >Réalisations</a
+      >
+      <a
+        href="#contact"
+        class="bg-bois-600 hover:bg-bois-500 text-bois-100 px-5 py-2 text-sm tracking-widest uppercase transition-colors"
+        >Contact</a
+      >
+    </div>
+
+    <!-- Mobile burger -->
+    <button id="burger" class="md:hidden text-bois-400">
+      <svg
+        class="w-6 h-6"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M4 6h16M4 12h16M4 18h16"
+        />
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile menu -->
+  <div
+    id="mobile-menu"
+    class="hidden md:hidden bg-charbon-800 border-t border-bois-800/30 px-6 py-4 flex flex-col gap-4"
+  >
+    <a
+      href="{% url 'home' %}"
+      class="text-bois-300 text-sm tracking-widest uppercase"
+      >Accueil</a
+    >
+    <a
+      href="{% url 'story' %}"
+      class="text-bois-300 text-sm tracking-widest uppercase"
+      >Mon Histoire</a
+    >
+    <a
+      href="{% url 'gallery' %}"
+      class="text-bois-300 text-sm tracking-widest uppercase"
+      >Réalisations</a
+    >
+    <a href="#contact" class="text-bois-300 text-sm tracking-widest uppercase"
+      >Contact</a
+    >
+  </div>
+</nav>
