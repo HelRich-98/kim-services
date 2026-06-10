@@ -1,0 +1,137 @@
+{% extends "base.html" %}
+<!-- prettier-ignore -->
+{% block title %}Réalisations — Jean-Pierre Morel{% endblock %}
+
+{% block content %}
+<div class="pt-28 pb-24">
+  <!-- Header -->
+  <div class="max-w-7xl mx-auto px-6 mb-12">
+    <div
+      class="font-accent text-bois-600 text-sm tracking-[0.4em] uppercase mb-4"
+    >
+      Portfolio
+    </div>
+    <h1
+      class="font-display text-6xl lg:text-7xl font-black text-bois-100 leading-none mb-6"
+    >
+      Mes<br /><span class="text-bois-500">réalisations.</span>
+    </h1>
+    <div class="w-20 h-1 bg-gradient-to-r from-bois-600 to-bois-400 mb-8"></div>
+
+    <!-- Filtres -->
+    <div class="flex flex-wrap gap-3">
+      <a
+        href="{% url 'gallery' %}"
+        class="px-6 py-2 font-accent tracking-widest text-sm uppercase transition-all {% if not categorie_active %}bg-bois-600 text-bois-100{% else %}border border-bois-700 text-bois-500 hover:border-bois-500 hover:text-bois-300{% endif %}"
+      >
+        Tout
+      </a>
+      <a
+        href="{% url 'gallery' %}?categorie=charpente"
+        class="px-6 py-2 font-accent tracking-widest text-sm uppercase transition-all {% if categorie_active == 'charpente' %}bg-bois-600 text-bois-100{% else %}border border-bois-700 text-bois-500 hover:border-bois-500 hover:text-bois-300{% endif %}"
+      >
+        Charpente
+      </a>
+      <a
+        href="{% url 'gallery' %}?categorie=menuiserie"
+        class="px-6 py-2 font-accent tracking-widest text-sm uppercase transition-all {% if categorie_active == 'menuiserie' %}bg-bois-600 text-bois-100{% else %}border border-bois-700 text-bois-500 hover:border-bois-500 hover:text-bois-300{% endif %}"
+      >
+        Menuiserie
+      </a>
+      <a
+        href="{% url 'gallery' %}?categorie=mixte"
+        class="px-6 py-2 font-accent tracking-widest text-sm uppercase transition-all {% if categorie_active == 'mixte' %}bg-bois-600 text-bois-100{% else %}border border-bois-700 text-bois-500 hover:border-bois-500 hover:text-bois-300{% endif %}"
+      >
+        Mixte
+      </a>
+    </div>
+  </div>
+
+  <!-- Grille galerie -->
+  <div class="max-w-7xl mx-auto px-6">
+    {% if realisations %}
+    <div class="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
+      {% for r in realisations %}
+      <div
+        class="gallery-card relative overflow-hidden break-inside-avoid group cursor-pointer bg-charbon-800 border border-bois-800/30"
+      >
+        <img
+          src="{{ r.image.url }}"
+          alt="{{ r.titre }}"
+          class="w-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
+        />
+        <div
+          class="card-overlay absolute inset-0 bg-gradient-to-t from-charbon-900 via-charbon-800/30 to-transparent flex flex-col justify-end p-6"
+        >
+          <div class="flex items-center justify-between mb-2">
+            <span class="text-bois-500 text-xs tracking-widest uppercase"
+              >{{ r.get_categorie_display }}</span
+            >
+            {% if r.annee %}<span class="text-bois-700 text-xs"
+              >{{ r.annee }}</span
+            >{% endif %}
+          </div>
+          <h3 class="font-display text-xl text-bois-100 font-bold">
+            {{ r.titre }}
+          </h3>
+          {% if r.lieu %}
+          <p class="text-bois-400 text-sm mt-1">📍 {{ r.lieu }}</p>
+          {% endif %}
+          <p class="text-bois-500 text-xs mt-3 leading-relaxed line-clamp-2">
+            {{ r.description }}
+          </p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+    {% else %}
+    <!-- Grille placeholder si pas encore de réalisations en BDD -->
+    <div class="text-center py-16">
+      <div class="text-6xl mb-6">🪵</div>
+      <p class="text-bois-600 text-lg font-display italic mb-4">
+        Les réalisations arrivent bientôt...
+      </p>
+      <p class="text-bois-700 text-sm">
+        Ajoutez vos photos via l'interface d'administration Django.
+      </p>
+      <a
+        href="/admin/core/realisation/add/"
+        class="inline-block mt-6 bg-bois-700 hover:bg-bois-600 text-bois-200 px-6 py-3 font-accent tracking-widest text-sm uppercase transition-all"
+      >
+        Ajouter une réalisation
+      </a>
+    </div>
+
+    <!-- Cards placeholder visuelles -->
+    <div class="grid md:grid-cols-3 gap-6 opacity-30 mt-8">
+      {% for i in "abcdef" %}
+      <div
+        class="bg-charbon-800 border border-bois-800/20 h-64 flex items-center justify-center"
+      >
+        <span class="text-bois-800 text-4xl">🏚️</span>
+      </div>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </div>
+
+  <!-- CTA contact en bas de galerie -->
+  <div class="max-w-4xl mx-auto px-6 mt-20 text-center">
+    <div class="border border-bois-700/40 bg-charbon-800/50 p-12">
+      <p class="text-bois-500 text-sm tracking-widest uppercase mb-4">
+        Un projet similaire ?
+      </p>
+      <h2 class="font-display text-4xl font-bold text-bois-100 mb-6">
+        Discutons-en.
+      </h2>
+      <a
+        href="/#contact"
+        class="inline-block bg-bois-600 hover:bg-bois-500 text-bois-100 px-10 py-4 font-accent tracking-widest text-lg uppercase transition-all hover:scale-105"
+      >
+        Demander un devis gratuit
+      </a>
+    </div>
+  </div>
+</div>
+{% endblock %}

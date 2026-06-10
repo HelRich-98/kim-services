@@ -1,0 +1,236 @@
+{% extends "base.html" %}
+<!-- prettier-ignore -->
+{% load core_extras %}
+<!-- prettier-ignore -->
+{% block title %}Mon Histoire — Jean-Pierre Morel{% endblock %}
+
+{% block content %}
+<div class="pt-28 pb-24">
+  <!-- Header -->
+  <div class="max-w-4xl mx-auto px-6 mb-20">
+    <div
+      class="font-accent text-bois-600 text-sm tracking-[0.4em] uppercase mb-4"
+    >
+      Qui suis-je ?
+    </div>
+    <h1
+      class="font-display text-6xl lg:text-7xl font-black text-bois-100 leading-none mb-6"
+    >
+      Mon<br /><span class="text-bois-500">histoire.</span>
+    </h1>
+    <div class="w-20 h-1 bg-gradient-to-r from-bois-600 to-bois-400"></div>
+  </div>
+
+  <!-- Intro portrait + texte -->
+  <div
+    class="max-w-6xl mx-auto px-6 grid lg:grid-cols-5 gap-16 items-start mb-24"
+  >
+    <!-- Portrait fictif / placeholder -->
+    <div class="lg:col-span-2">
+      <div
+        class="bg-charbon-800 border border-bois-800/40 aspect-[3/4] flex items-center justify-center relative overflow-hidden"
+      >
+        <div
+          class="absolute inset-0 bg-gradient-to-br from-bois-900/20 to-charbon-900/80"
+        ></div>
+        <div class="relative text-center text-bois-700">
+          <div class="text-8xl mb-4">👨‍🔧</div>
+          <div class="text-sm tracking-widest">Jean-Pierre Morel</div>
+          <div class="text-xs text-bois-800 mt-1">Photo à ajouter</div>
+        </div>
+      </div>
+      <!-- Encart signature -->
+      <div class="mt-6 border-l-4 border-bois-600 pl-5 py-2">
+        <div class="font-display italic text-bois-400 text-sm">
+          "Le bois n'ment pas. Il se travaille dans le respect ou pas du tout."
+        </div>
+        <div class="text-bois-700 text-xs mt-2 tracking-widest">
+          — Jean-Pierre Morel
+        </div>
+      </div>
+    </div>
+
+    <!-- Texte -->
+    <div class="lg:col-span-3 space-y-6 text-bois-400 leading-relaxed">
+      <h2 class="font-display text-3xl text-bois-200 font-bold gold-line">
+        Les débuts
+      </h2>
+      <p>
+        Né en 1972 dans une famille d'agriculteurs de l'Ardèche, Jean-Pierre
+        Morel grandit entouré de granges, de fermes et de vieilles charpentes en
+        chêne. À 14 ans, il entre en apprentissage chez un maître charpentier du
+        village — Marcel Faure — qui lui apprend les gestes fondamentaux :
+        tracer à la règle, fendre à la hache, assembler à la cheville.
+      </p>
+      <p>
+        Titulaire de son CAP Charpente en 1990, puis de son Brevet Professionnel
+        en 1993, il part se former pendant deux ans en Alsace, région réputée
+        pour ses maisons à colombages. C'est là qu'il développe une fascination
+        pour les assemblages complexes et les essences rares.
+      </p>
+
+      <h2 class="font-display text-3xl text-bois-200 font-bold gold-line pt-6">
+        La création de l'atelier
+      </h2>
+      <p>
+        En 1998, à 26 ans, il s'installe à son compte dans la Drôme et crée
+        l'Atelier Morel. Les premières années sont difficiles — petits
+        chantiers, bouche-à-oreille, beaucoup de travail sur les corps de ferme.
+        Mais la qualité de ses assemblages fait sa réputation.
+      </p>
+      <p>
+        En 2004, il décroche son premier chantier de restauration sur un
+        bâtiment classé : la grange médiévale de la commune de
+        Montbrun-les-Bains. Ce chantier de deux ans lui ouvre les portes du
+        patrimoine. Il se forme alors aux techniques de taille à la doloire et
+        aux chevilles en bois de frêne.
+      </p>
+
+      <h2 class="font-display text-3xl text-bois-200 font-bold gold-line pt-6">
+        Aujourd'hui
+      </h2>
+      <p>
+        Après plus de 25 ans d'activité et 320 chantiers réalisés, l'Atelier
+        Morel emploie deux compagnons. Jean-Pierre intervient aussi bien sur des
+        charpentes industrielles pour des hangars agricoles que sur des
+        menuiseries sur-mesure pour des architectes d'intérieur parisiens.
+      </p>
+      <p>
+        Certifié RGE (Reconnu Garant de l'Environnement) et membre de la
+        Confédération de l'Artisanat, il utilise exclusivement des bois
+        certifiés PEFC issus de forêts gérées durablement.
+      </p>
+    </div>
+  </div>
+
+  <!-- Timeline -->
+  <div class="bg-charbon-800 py-20">
+    <div class="max-w-4xl mx-auto px-6">
+      <h2
+        class="font-display text-4xl font-bold text-bois-100 text-center mb-16 gold-line mx-auto w-fit"
+      >
+        Parcours chronologique
+      </h2>
+      <div class="relative">
+        <!-- Ligne centrale -->
+        <div
+          class="absolute left-1/2 -translate-x-px top-0 bottom-0 w-px bg-bois-800"
+        ></div>
+
+        {% for item in timeline_items %}{% endfor %}
+
+        <!-- Items fixes de timeline -->
+
+        <!-- Timeline items (statiques pour demo) -->
+        <div class="space-y-10">
+          {% for entry in "a,b,c,d,e,f,g,h"|make_list %}
+          <!-- prettier-ignore -->
+          {% endfor %}
+
+          <!-- 1990 -->
+          <div class="relative flex items-center gap-8">
+            <div class="w-1/2 text-right pr-8">
+              <div class="font-accent text-bois-500 text-2xl">1990</div>
+              <p class="text-bois-400 text-sm">
+                CAP Charpente obtenu avec mention. Premier compagnonnage en
+                Ardèche.
+              </p>
+            </div>
+            <div
+              class="absolute left-1/2 -translate-x-1/2 w-4 h-4 bg-bois-600 border-2 border-bois-400 rounded-full z-10"
+            ></div>
+            <div class="w-1/2 pl-8"></div>
+          </div>
+
+          <!-- 1998 -->
+          <div class="relative flex items-center gap-8">
+            <div class="w-1/2 pr-8"></div>
+            <div
+              class="absolute left-1/2 -translate-x-1/2 w-4 h-4 bg-bois-600 border-2 border-bois-400 rounded-full z-10"
+            ></div>
+            <div class="w-1/2 pl-8">
+              <div class="font-accent text-bois-500 text-2xl">1998</div>
+              <p class="text-bois-400 text-sm">
+                Création de l'Atelier Morel dans la Drôme. Installation en
+                indépendant.
+              </p>
+            </div>
+          </div>
+
+          <!-- 2004 -->
+          <div class="relative flex items-center gap-8">
+            <div class="w-1/2 text-right pr-8">
+              <div class="font-accent text-bois-500 text-2xl">2004</div>
+              <p class="text-bois-400 text-sm">
+                Premier chantier sur monument historique — grange médiévale
+                classée.
+              </p>
+            </div>
+            <div
+              class="absolute left-1/2 -translate-x-1/2 w-4 h-4 bg-bois-600 border-2 border-bois-400 rounded-full z-10"
+            ></div>
+            <div class="w-1/2 pl-8"></div>
+          </div>
+
+          <!-- 2010 -->
+          <div class="relative flex items-center gap-8">
+            <div class="w-1/2 pr-8"></div>
+            <div
+              class="absolute left-1/2 -translate-x-1/2 w-4 h-4 bg-bois-600 border-2 border-bois-400 rounded-full z-10"
+            ></div>
+            <div class="w-1/2 pl-8">
+              <div class="font-accent text-bois-500 text-2xl">2010</div>
+              <p class="text-bois-400 text-sm">
+                Certification RGE, Qualibat, et label PEFC. Engagement
+                environnemental.
+              </p>
+            </div>
+          </div>
+
+          <!-- 2024 -->
+          <div class="relative flex items-center gap-8">
+            <div class="w-1/2 text-right pr-8">
+              <div class="font-accent text-bois-500 text-2xl">2024</div>
+              <p class="text-bois-400 text-sm">
+                320e chantier réalisé. L'atelier emploie désormais deux
+                compagnons.
+              </p>
+            </div>
+            <div
+              class="absolute left-1/2 -translate-x-1/2 w-5 h-5 bg-bois-500 border-2 border-bois-300 rounded-full z-10"
+            ></div>
+            <div class="w-1/2 pl-8"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Certifications -->
+  <div class="max-w-5xl mx-auto px-6 py-20">
+    <h2 class="font-display text-3xl font-bold text-bois-100 text-center mb-12">
+      Certifications & labels
+    </h2>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+      <div class="border border-bois-700/40 bg-charbon-800 p-6 text-center">
+        <div class="font-accent text-bois-400 text-3xl mb-2">RGE</div>
+        <div class="text-bois-600 text-xs">
+          Reconnu Garant de l'Environnement
+        </div>
+      </div>
+      <div class="border border-bois-700/40 bg-charbon-800 p-6 text-center">
+        <div class="font-accent text-bois-400 text-3xl mb-2">PEFC</div>
+        <div class="text-bois-600 text-xs">Bois issus de forêts durables</div>
+      </div>
+      <div class="border border-bois-700/40 bg-charbon-800 p-6 text-center">
+        <div class="font-accent text-bois-400 text-3xl mb-2">QB</div>
+        <div class="text-bois-600 text-xs">Qualification Qualibat</div>
+      </div>
+      <div class="border border-bois-700/40 bg-charbon-800 p-6 text-center">
+        <div class="font-accent text-bois-400 text-3xl mb-2">CM</div>
+        <div class="text-bois-600 text-xs">Confédération de l'Artisanat</div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

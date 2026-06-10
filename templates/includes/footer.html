@@ -1,3 +1,4 @@
+{% load core_extras %}
 <footer class="bg-charbon-800 border-t border-bois-800/40 py-12 mt-20">
   <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-10">
     <div>
@@ -22,7 +23,7 @@
         <a
           href="{% url 'story' %}"
           class="text-bois-400 hover:text-bois-300 text-sm transition-colors"
-          >Mon Histoire</a
+          >À propos de KIM</a
         >
         <a
           href="{% url 'gallery' %}"
@@ -36,14 +37,14 @@
         Contact
       </div>
       <div class="flex flex-col gap-2 text-bois-400 text-sm">
-        <span>📞 +33 6 12 34 56 78</span>
-        <span>📧 jp.morel@charpente-menuiserie.fr</span>
-        <span>📍 Région Auvergne-Rhône-Alpes</span>
+        <span>📞 +242 123 456 789</span>
+        <span>📧 {{ site_name|lower|replace:" ,." }}@gmail.com</span>
+        <span>📍 Mayanga, Brazzaville, Congo</span>
       </div>
     </div>
   </div>
   <div class="saw-mark mt-10 opacity-30"></div>
   <div class="text-center text-bois-700 text-xs mt-4">
-    © 2025 Jean-Pierre Morel · Artisan Charpentier-Menuisier
+    © 2025 {{ site_name }} · Artisan Charpentier-Menuisier
   </div>
 </footer>
