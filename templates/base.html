@@ -10,6 +10,14 @@
     <title>{% block title %}{% endblock title %} - {{ site_name }}</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="{{ meta_description|default:'Services de menuiserie artisanale et créations en bois sur mesure.' }}"
+    />
+    <meta
+      name="keywords"
+      content="travail du bois, mobilier artisanal, artisanat du bois, menuiserie sur mesure, charpente, menuiserie"
+    />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     {% tailwind_css %}
     <style>
