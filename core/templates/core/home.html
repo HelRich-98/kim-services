@@ -44,7 +44,7 @@
       <p
         class="fade-up delay-2 font-body text-bois-400 text-lg leading-relaxed mb-10 max-w-lg"
       >
-        Charpentier et menuisier de métier, Jean-Pierre Morel transforme chaque
+        Charpentier et menuisier de métier, {{ site_name }} transforme chaque
         pièce de bois en chef-d'œuvre durable. Des charpentes ancestrales aux
         agencements contemporains.
       </p>
@@ -57,10 +57,10 @@
           Voir les réalisations
         </a>
         <a
-          href="{% url 'story' %}"
+          href="{% url 'about_us' %}"
           class="border border-bois-600 text-bois-400 hover:text-bois-300 hover:border-bois-400 px-8 py-4 font-accent tracking-widest text-lg uppercase transition-all"
         >
-          Mon histoire
+          En savoir plus
         </a>
       </div>
     </div>
@@ -222,9 +222,9 @@
       <div
         class="group border-l-2 border-bois-700 hover:border-bois-500 pl-6 py-4 transition-all"
       >
-        <div class="text-3xl mb-4">{{ c.icone }}</div>
+        <div class="text-3xl mb-4">{{ c.icon }}</div>
         <h3 class="font-display text-xl text-bois-200 font-bold mb-2">
-          {{ c.nom }}
+          {{ c.name }}
         </h3>
         <p class="text-bois-500 text-sm leading-relaxed">{{ c.description }}</p>
       </div>
@@ -259,8 +259,8 @@
       {% for r in realisations_vedette %}
       <div class="gallery-card relative overflow-hidden group cursor-pointer">
         <img
-          src="{{ r.image.url }}"
-          alt="{{ r.titre }}"
+          src="{{ r.get_featured_image_url }}"
+          alt="{{ r.title }}"
           class="w-full h-72 object-cover filter grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
         />
         <div
@@ -270,10 +270,10 @@
             >{{ r.get_categorie_display }}</span
           >
           <h3 class="font-display text-2xl text-bois-100 font-bold">
-            {{ r.titre }}
+            {{ r.title }}
           </h3>
-          {% if r.lieu %}
-          <p class="text-bois-400 text-sm mt-1">📍 {{ r.lieu }}</p>
+          {% if r.location %}
+          <p class="text-bois-400 text-sm mt-1">📍 {{ r.location }}</p>
           {% endif %}
         </div>
       </div>
@@ -318,7 +318,9 @@
       {% for t in temoignages %}
       <div class="border border-bois-800/40 bg-charbon-900/50 p-8">
         <div class="text-bois-500 text-xl mb-4">{{ t.note }}</div>
-        <p class="text-bois-300 italic leading-relaxed mb-6">"{{ t.texte }}"</p>
+        <p class="text-bois-300 italic leading-relaxed mb-6">
+          "{{ t.content }}"
+        </p>
         <div class="flex items-center gap-3">
           <div
             class="w-8 h-8 bg-bois-700 flex items-center justify-center text-bois-300 font-bold text-sm"

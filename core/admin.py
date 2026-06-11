@@ -1,18 +1,21 @@
 from django.contrib import admin
 
-from .models import Realisation, Competence, Temoignage
+from .models import Skill, Journey, Testimonial
 
 # Register your models here.
 
-@admin.register(Realisation)
-class RealisationAdmin(admin.ModelAdmin):
-    list_display = ("titre", "categorie", "created_at", "annee")
+
+@admin.register(Skill)
+class SkillAdmin(admin.ModelAdmin):
+    list_display = ("name", "order")
 
 
-@admin.register(Competence)
-class CompetenceAdmin(admin.ModelAdmin):
-    list_display = ("nom", "ordre")
+@admin.register(Journey)
+class JourneyAdmin(admin.ModelAdmin):
+    list_display = ("title", "date")
 
-@admin.register(Temoignage)
-class TemoignageAdmin(admin.ModelAdmin):
+
+@admin.register(Testimonial)
+class TestimonialAdmin(admin.ModelAdmin):
     list_display = ("client", "note", "date")
+    

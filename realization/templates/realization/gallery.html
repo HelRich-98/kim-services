@@ -56,8 +56,8 @@
         class="gallery-card relative overflow-hidden break-inside-avoid group cursor-pointer bg-charbon-800 border border-bois-800/30"
       >
         <img
-          src="{{ r.image.url }}"
-          alt="{{ r.titre }}"
+          src="{{ r.get_featured_image_url }}"
+          alt="{{ r.title }}"
           class="w-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
         />
         <div
@@ -67,15 +67,15 @@
             <span class="text-bois-500 text-xs tracking-widest uppercase"
               >{{ r.get_categorie_display }}</span
             >
-            {% if r.annee %}<span class="text-bois-700 text-xs"
-              >{{ r.annee }}</span
+            {% if r.date %}<span class="text-bois-700 text-xs"
+              >{{ r.date }}</span
             >{% endif %}
           </div>
           <h3 class="font-display text-xl text-bois-100 font-bold">
-            {{ r.titre }}
+            {{ r.title }}
           </h3>
-          {% if r.lieu %}
-          <p class="text-bois-400 text-sm mt-1">📍 {{ r.lieu }}</p>
+          {% if r.location %}
+          <p class="text-bois-400 text-sm mt-1">📍 {{ r.location }}</p>
           {% endif %}
           <p class="text-bois-500 text-xs mt-3 leading-relaxed line-clamp-2">
             {{ r.description }}
@@ -96,7 +96,7 @@
         Ajoutez vos photos via l'interface d'administration Django.
       </p>
       <a
-        href="/admin/core/realisation/add/"
+        href="/admin/realization/realization/add/"
         class="inline-block mt-6 bg-bois-700 hover:bg-bois-600 text-bois-200 px-6 py-3 font-accent tracking-widest text-sm uppercase transition-all"
       >
         Ajouter une réalisation
