@@ -49,5 +49,6 @@ URL : http://localhost:8000/admin
 ## Développé par
 
 HelRICH BZM (Helan Hulurich Bazebimio)
--Tel: 069866202, 065585285
--Email: helrich.bzm@gmail.com
+
+- Tel: 069866202, 065585285
+- Email: helrich.bzm@gmail.com
